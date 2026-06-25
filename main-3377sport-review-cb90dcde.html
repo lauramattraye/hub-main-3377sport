@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3377体育 · 从一处叙述开始</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background-color: #f6f4f0;
+            color: #1f2a38;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1420 0%, #1e293b 70%, #2a3b4c 100%);
+            color: #e6edf5;
+            padding: 3.2rem 1.5rem 3rem;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .hero-inner {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .hero-sub {
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #9bb7d4;
+            border-left: 4px solid #e0b87c;
+            padding-left: 0.9rem;
+            margin-bottom: 1.2rem;
+            font-weight: 400;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #f0f4fb;
+            word-break: break-word;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            opacity: 0.85;
+            font-weight: 300;
+            color: #d6e1ed;
+        }
+
+        /* 浅色正文区 */
+        .main-container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2.8rem 1.5rem 3.5rem;
+            background: #ffffff;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+            border-radius: 0 0 20px 20px;
+        }
+
+        .content-block {
+            margin-bottom: 2.4rem;
+        }
+
+        .content-block p {
+            margin-bottom: 1.1rem;
+            font-size: 1.02rem;
+        }
+
+        .content-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            font-weight: 390;
+            color: #1f2a38;
+            border-left: 3px solid #e0b87c;
+            padding-left: 1.2rem;
+            margin: 1.8rem 0 1.5rem;
+            background: #faf8f5;
+            padding: 1rem 1.2rem;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .story-signature {
+            font-style: normal;
+            color: #4a5b6e;
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        /* 特点列表 —— 温和叙述 */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.8rem 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .feature-list li {
+            background: #f9f7f3;
+            padding: 1rem 1.4rem;
+            border-radius: 16px;
+            border-left: 5px solid #b7c9db;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            transition: background 0.2s;
+            font-size: 0.98rem;
+        }
+
+        .feature-list li strong {
+            color: #1f3a57;
+            font-weight: 520;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-list li:hover {
+            background: #f1eee9;
+        }
+
+        /* 场景小卡片（温和） */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.8rem 0;
+        }
+
+        .scene-item {
+            background: #faf8f5;
+            border-radius: 20px;
+            padding: 1.2rem 1.2rem 1.4rem;
+            border: 1px solid #eae5dd;
+            transition: all 0.15s;
+        }
+
+        .scene-item h4 {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #1f2a38;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+
+        .scene-item p {
+            font-size: 0.92rem;
+            color: #3e4e5f;
+            margin: 0;
+        }
+
+        .scene-item:hover {
+            border-color: #c8b9a5;
+            background: #f5f1ec;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin-top: 2.6rem;
+            background: #f3f0ea;
+            border-radius: 24px;
+            padding: 1.6rem 1.6rem 1.8rem;
+        }
+
+        .faq-mini h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            color: #1f2a38;
+            margin-bottom: 1rem;
+            border-bottom: 1px dashed #cfc6ba;
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item summary {
+            font-weight: 450;
+            cursor: pointer;
+            color: #1f2a38;
+            padding: 0.3rem 0;
+            font-size: 0.98rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-item summary::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #b7a185;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .faq-item[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-item p {
+            margin-top: 0.3rem;
+            padding-left: 1.8rem;
+            color: #3b4c5d;
+            font-size: 0.92rem;
+        }
+
+        /* 链接强调色 */
+        a {
+            color: #b77d3f;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #8f622b;
+            border-bottom: 1px solid #b77d3f;
+        }
+
+        .inline-link-highlight {
+            color: #b77d3f;
+            font-weight: 450;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e6dfd6;
+            font-size: 0.85rem;
+            color: #5b6c7c;
+            text-align: left;
+        }
+
+        .footer-note a {
+            color: #6e7f8f;
+            border-bottom: none;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .scene-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature-list li {
+                padding: 0.9rem 1rem;
+            }
+            .main-container {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+            .hero {
+                padding: 2.4rem 1.2rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .feature-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="hero-sub">一个关于主题背后的叙述</div>
+            <h1>从一处细微的观察开始</h1>
+            <p>有些事物并不急于定义自己，它们被时间打磨，被对话承载，在某个安静的角落逐渐清晰。</p>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- 开场短句 / 承接段落 -->
+        <div class="content-block">
+            <p>许多时候，我们反复回到同一个名字，并不是因为它最新，而是因为它始终在场、始终有温度。这种感受很难用一句口号概括，它来自持续的选择和细微的衔接。</p>
+            <div class="lead">
+                大概在三年前，一位朋友偶然提起 <a href="https://main-3377sport.com">3377体育</a>，语气很平常，像是说一件自然而然的事。后来我才慢慢理解，那种自然背后，其实是一种长期的默契。
+            </div>
+            <p>这份默契既来自对节奏的尊重，也来自不刻意渲染的讲述方式。就像一条小河，水流平缓，但两岸的风景一直在更替。你不需要每天都盯着它，但你知道它在那里。</p>
+        </div>
+
+        <!-- 特点列表（叙事式） -->
+        <div class="content-block">
+            <h3 style="font-weight: 470; font-size: 1.2rem; margin-bottom: 0.8rem;">几个侧面，拼成一个轮廓</h3>
+            <ul class="feature-list">
+                <li>
+                    <strong>· 不急于表达</strong>
+                    当别处都在用大字号和感叹号时，它更倾向于把信息交给你，让你自己得出结论。没有强加的情绪，只有清晰的界面和克制的引导。
+                </li>
+                <li>
+                    <strong>· 持续但不出声</strong>
+                    更新不喧哗，调整不扰人。今天和昨天看起来相似，但细节上总有变化。这种低调的演进，反而让人更愿意留下来。
+                </li>
+                <li>
+                    <strong>· 内容聚合的自然逻辑</strong>
+                    不是把所有东西堆在一起，而是按照一种内在的关联来组织。当你顺着一个点滑动，常常会意外发现另一个相关的角落。
+                </li>
+                <li>
+                    <strong>· 语言温和，不夸张</strong>
+                    无论是标题还是说明，都保持一种近乎散文的语调。没有“最”、“第一”、“必看”这类词，取而代之的是平实的描述。
+                </li>
+            </ul>
+        </div>
+
+        <!-- 场景段落 -->
+        <div class="content-block">
+            <h3 style="font-weight: 470; font-size: 1.1rem; margin-bottom: 0.8rem;">几个可能出现的日常片段</h3>
+            <div class="scene-grid">
+                <div class="scene-item">
+                    <h4>傍晚，结束一天事务之后</h4>
+                    <p>你随手打开页面，没有明确的目的，只是滑动几屏。偶尔停下来读一段，然后退出去。整个过程没有干扰，也没有催促。</p>
+                </div>
+                <div class="scene-item">
+                    <h4>周末的某个下午</h4>
+                    <p>和朋友聊到一个话题，忽然想起之前在某处看到过相关的内容。你打开收藏夹，找到那个链接——干净、直接，没有多余的跳转。</p>
+                </div>
+                <div class="scene-item">
+                    <h4>长途通勤路上</h4>
+                    <p>信号不太稳定，但页面加载很轻。文字优先，没有自动播放的视频，也不用担心流量。你慢慢看完了一篇，到站了。</p>
+                </div>
+                <div class="scene-item">
+                    <h4>深夜，安静地浏览</h4>
+                    <p>屏幕亮度调低，背景色柔和。没有弹窗，没有刺眼的广告。你只是继续上次读到的地方，像翻开一本没有书签的书。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 温和结尾 / 提示 -->
+        <div class="content-block" style="margin-bottom: 1rem;">
+            <p>这些碎片拼在一起，形成了一个并不耀眼但足够稳定的印象。如果说它有什么不同，大概就是：它不试图成为你生活的主角，但愿意做一个可靠的配角。你随时可以回到它，它也不会让你感到疏远。</p>
+            <p class="story-signature">如果你也想感受这种节奏，或许可以顺着这个名字走一段路：<a href="https://main-3377sport.com">3377体育</a>。不是作为入口，而是作为一个安静的坐标。</p>
+        </div>
+
+        <!-- FAQ摘要（轻量） -->
+        <div class="faq-mini">
+            <h3>一些你可能想问的事</h3>
+            <details class="faq-item">
+                <summary>为什么用“体育”这个词？</summary>
+                <p>这里的“体育”更多指的是一种持续、规律的身体与心智活动，不局限于竞技或赛事。它代表一种日常的、可参与的状态。</p>
+            </details>
+            <details class="faq-item">
+                <summary>内容会频繁变化吗？</summary>
+                <p>更新有自己的节奏，不追求每天刷新，但也不会长期静止。变化是渐进的，像植物的生长，而不是电灯的开关。</p>
+            </details>
+            <details class="faq-item">
+                <summary>适合什么样的人？</summary>
+                <p>适合那些对信息有耐心、不喜欢被推着走的人。如果你更倾向于自己探索，而不是被引导，那么这里可能会让你觉得舒适。</p>
+            </details>
+        </div>
+
+        <!-- footer 简单收束 -->
+        <div class="footer-note">
+            <span>一个关于主题的叙述 · 没有多余的装饰</span>
+        </div>
+    </div>
+</body>
+</html>
